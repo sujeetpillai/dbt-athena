@@ -120,3 +120,8 @@
     -- now()
     cast(now() as timestamp)
 {%- endmacro %}
+
+
+{%- macro athena__type_string() -%}
+    varchar
+{%- endmacro -%}
