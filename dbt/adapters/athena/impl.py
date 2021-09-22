@@ -37,4 +37,4 @@ class AthenaAdapter(SQLAdapter):
         conn = self.connections.get_thread_connection()
         client = conn.handle
 
-        return f"{client.s3_staging_dir}tables/{str(uuid4())}/"
+        return f"{client.s3_table_dir}{str(uuid4())}/"
