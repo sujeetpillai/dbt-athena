@@ -24,7 +24,7 @@ from dbt.logger import GLOBAL_LOGGER as logger
 @dataclass
 class AthenaCredentials(Credentials):
     s3_staging_dir: str
-    s3_table_dir: str
+    s3_table_dir: Optional[str]
     region_name: str
     schema: str
     work_group: Optional[str]
