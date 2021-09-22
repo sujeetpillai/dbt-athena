@@ -36,5 +36,4 @@ class AthenaAdapter(SQLAdapter):
     def s3_uuid_table_location(self):
         conn = self.connections.get_thread_connection()
         client = conn.handle
-        table_dir = getattr(conn.credentials,'s3_table_dir') or client.s3_staging_dir+'tables/'
-        return f"{table_dir}{str(uuid4())}/"
+        return f"{client.s3_staging_dir}tables/{str(uuid4())}/"
