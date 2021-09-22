@@ -24,6 +24,7 @@ from dbt.logger import GLOBAL_LOGGER as logger
 @dataclass
 class AthenaCredentials(Credentials):
     s3_staging_dir: str
+    s3_table_dir: str
     region_name: str
     schema: str
     work_group: Optional[str]
@@ -39,7 +40,7 @@ class AthenaCredentials(Credentials):
         return "athena"
 
     def _connection_keys(self) -> Tuple[str, ...]:
-        return "s3_staging_dir", "work_group", "region_name", "database", "schema", "poll_interval", "aws_profile_name"
+        return "s3_staging_dir","s3_table_dir", "work_group", "region_name", "database", "schema", "poll_interval", "aws_profile_name"
 
 
 class AthenaCursor(Cursor):
