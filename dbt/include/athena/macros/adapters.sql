@@ -19,7 +19,7 @@
 
     with (
       {%- if external_location is not none and not temporary %}
-        external_location='{{ external_location }}',
+        external_location='{{external_location}}/{{relation}}/{{invocation_id}}',
       {%- endif %}
       {%- if partitioned_by is not none %}
         partitioned_by=ARRAY{{ partitioned_by | tojson | replace('\"', '\'') }},
